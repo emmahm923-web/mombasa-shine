@@ -1,29 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Services } from "@/components/site/Services";
+import { Booking } from "@/components/site/Booking";
+import { Gallery } from "@/components/site/Gallery";
+import { WhyChooseUs } from "@/components/site/WhyChooseUs";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Mombasa Car Wash — Professional Shine, Every Time" },
+      { name: "description", content: "Premium car wash and detailing in Mombasa. Book exterior wash, interior detailing, polish, engine cleaning and more — online in 60 seconds." },
+      { property: "og:title", content: "Mombasa Car Wash — Professional Shine, Every Time" },
+      { property: "og:description", content: "Fast, affordable, reliable car wash and detailing services in Mombasa." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Booking />
+        <Gallery />
+        <WhyChooseUs />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingWhatsApp />
+      <Toaster position="top-center" richColors />
     </div>
   );
 }
