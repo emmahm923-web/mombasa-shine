@@ -1,16 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { About } from "@/components/site/About";
-import { Services } from "@/components/site/Services";
-import { Booking } from "@/components/site/Booking";
-import { Gallery } from "@/components/site/Gallery";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
-import { Testimonials } from "@/components/site/Testimonials";
-import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
-import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,21 +16,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Booking />
-        <Gallery />
-        <WhyChooseUs />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-      <Toaster position="top-center" richColors />
-    </div>
+    <>
+      <Hero />
+      <WhyChooseUs />
+    </>
   );
 }
