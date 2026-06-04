@@ -1,7 +1,6 @@
 import { Car, Sparkles, Droplets, Wind, Wrench, CircleDot, Gem, Truck, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "./Section";
-import { Link } from "@tanstack/react-router";
 
 export const SERVICES = [
   { id: "exterior", icon: Droplets, name: "Exterior Wash", desc: "Hand wash, rinse, dry with microfiber.", duration: "20 min", price: "KSh 500" },
@@ -39,7 +38,7 @@ export function Services() {
                 <div className="font-display text-base font-bold text-ocean-deep">{price}</div>
               </div>
               <Button asChild variant="default" size="sm" className="relative mt-4 w-full">
-                <Link to="/book">Book This Service</Link>
+                <a href="#book">Book This Service</a>
               </Button>
             </div>
           ))}
