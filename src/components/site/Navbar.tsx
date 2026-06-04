@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#about", label: "About" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
-];
+  { to: "/services", label: "Services" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,32 +30,33 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-aqua shadow-glow">
             <Droplets className="h-5 w-5 text-primary-foreground" />
           </span>
           <span className={`font-display text-lg font-bold ${scrolled ? "text-foreground" : "text-white"}`}>
             Mombasa<span className="text-accent">Wash</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
+              activeProps={{ className: "text-primary" }}
               className={`text-sm font-medium transition-colors ${
                 scrolled ? "text-foreground/80 hover:text-primary" : "text-white/85 hover:text-white"
               }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="flex items-center gap-2">
           <Button asChild variant="hero" size="sm" className="hidden md:inline-flex">
-            <a href="#book">Book Now</a>
+            <Link to="/book">Book Now</Link>
           </Button>
           <button
             className={`grid h-10 w-10 place-items-center rounded-lg md:hidden ${
@@ -73,17 +74,17 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="flex flex-col gap-1 px-5 py-4">
             {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-base font-medium text-foreground hover:bg-secondary"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <Button asChild variant="hero" className="mt-2">
-              <a href="#book" onClick={() => setOpen(false)}>Book Now</a>
+              <Link to="/book" onClick={() => setOpen(false)}>Book Now</Link>
             </Button>
           </div>
         </div>

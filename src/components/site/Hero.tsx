@@ -1,5 +1,6 @@
 import { ArrowRight, Star, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-foam.jpg";
 
 export function Hero() {
@@ -34,12 +35,12 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="xl">
-              <a href="#book">
+              <Link to="/book">
                 Book Now <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <a href="#services">View Services</a>
+              <Link to="/services">View Services</Link>
             </Button>
           </div>
 
